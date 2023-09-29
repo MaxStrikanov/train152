@@ -29,3 +29,15 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.slider-btn__prev',
   },
 });
+
+const scrollDiv = document.getElementById('timeline')
+const progressBar = document.querySelector('.progress-bar__timeline')
+const height = document.documentElement.scrollHeight - 
+document.documentElement.clientHeight
+
+window.addEventListener('scroll', () => {
+  const scrollTop = scrollDiv.scrollHeight
+  const scrolled = (scrollTop / height) * 100
+
+  progressBar.style.height = `${scrolled}%`
+})

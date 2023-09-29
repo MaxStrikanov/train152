@@ -34,6 +34,10 @@ body {
     position: relative;
 }
 
+section {
+    margin: 120px 0 40px 0;
+}
+
 /************************Шапка*************************/
 header {
     background-color: var(--grey);
@@ -314,15 +318,18 @@ h1.title::after {
 .advantages-item__text {
     padding: 0px 15px ;
 }
+
+
 .catalog-items {
     display: flex;
-    gap: 10px;
+    gap: 35px 0px;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
 .catalog-item{
     width: 320px;
-    height: auto;
+    height: 240px;
     border-radius: 20px;
     background: #f5f5f5;
     position: relative;
@@ -339,7 +346,9 @@ h1.title::after {
     display: grid;
     place-content: center;
 }
-
+.catalog-item__img img {
+    width: 100%;
+}
 .catalog-item__btn {
     text-decoration: none;
     text-align: center;
@@ -377,20 +386,38 @@ h1.title::after {
 /***********************Как это работает********************************/
 
 #timeline {
-  width: 100%;
-  margin: 30px auto;
-  position: relative;
-  padding: 0 10px;
-  -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  -ms-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+    width: 100%;
+    margin: 30px auto;
+    position: relative;
+    padding: 0 10px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
+.progress-bar__timeline {
+    width: 10px;
+    background: var(--primary);
+    left: 50%;
+    top: 8rem;
+    z-index: 3;
+    position: absolute;
+    height: 0;
+}
+.scroll-indicator__timeline {
+    width: 10px;
+    background: var(--bg);
+    height:  calc(100% - 200px);
+    
+    top: 8rem;
+    left: 50%;
+}
+
 #timeline:before {
     content: "";
     width: 10px;
     height: calc(100% - 100px);
-    background: var(--primary);
+    background: var(--bg);
     left: 50%;
     top: 0;
     position: absolute;
@@ -508,4 +535,20 @@ h1.title::after {
   #timeline .timeline-item .timeline-icon {
     left: 0;
   }
+}
+
+
+.scroll-indicator {
+    height: 10px;
+    width: calc(100% - 8rem);
+    position: fixed;
+    top: 1rem;
+    left: 4rem;
+}
+
+.scroll-indicator .progress-bar {
+    height: 100%;
+    width: 0;
+    border-radius: 100px;
+    background-color: #ea5c4e;
 }
